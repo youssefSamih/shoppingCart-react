@@ -38,7 +38,6 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-unicorn": "^37.0.1",
     "husky": "^7.0.2",
-    "lint-staged": "^11.2.3",
     "prettier": "^2.4.1",
     "typescript": "^4.1.2"
   },
@@ -49,10 +48,10 @@
     "eject": "react-scripts eject",
     "type-check": "tsc",
     "lint": "eslint -c ./.eslintrc.json ./src --ext .ts,.tsx",
-    "lint:fix": "yarn run lint --fix",
+    "lint:fix": "npm run lint --fix",
     "format": "prettier --write src/**/*.{ts,tsx}",
     "prepare": "rm -rf ./.husky && husky install",
-    "precommit": "yarn lint && yarn tsconfig && husky add .husky/pre-commit \"yarn precommit\""
+    "precommit": "npm lint && npm tsconfig && husky add .husky/pre-commit \"npm precommit\""
   },
   "eslintConfig": {
     "extends": [
@@ -75,12 +74,6 @@
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
     "all": true
-  },
-  "lint-staged": {
-    "*.+(ts|tsx)": [
-      "yarn run format",
-      "yarn run lint:fix"
-    ]
   },
   "husky": {
     "hooks": {
