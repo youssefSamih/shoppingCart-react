@@ -51,7 +51,7 @@
     "lint": "eslint -c ./.eslintrc.json ./src --ext .ts,.tsx",
     "lint:fix": "yarn run lint --fix",
     "format": "prettier --write src/**/*.{ts,tsx}",
-    "prepare": "rm -rf ./.husky && husky install && husky add .husky/pre-commit"
+    "prepare": "rm -rf ./.husky && husky install"
   },
   "eslintConfig": {
     "extends": [
@@ -82,7 +82,7 @@
   },
   "lint-staged": {
     "*.+(ts|tsx)": [
-      "prettier --write src/**/*.{ts,tsx}",
+      "yarn run format",
       "yarn run lint:fix"
     ]
   }
