@@ -75,15 +75,15 @@
     "extends": "@istanbuljs/nyc-config-typescript",
     "all": true
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
   "lint-staged": {
     "*.+(ts|tsx)": [
       "yarn run format",
       "yarn run lint:fix"
     ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }
