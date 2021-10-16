@@ -1,5 +1,5 @@
-import { CartActions, CartItemType, CartType } from 'modules';
 import React from 'react';
+import { CartActions, CartItemType, CartType } from 'modules';
 
 export const addItemtoCart = (
   dispatch: React.Dispatch<CartType>,

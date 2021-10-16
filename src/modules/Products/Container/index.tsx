@@ -1,11 +1,6 @@
 import React from 'react';
-import {
-  CartItemType,
-  Header,
-  ProductsGrid,
-  Wrapper,
-  useHandleCart,
-} from 'modules';
+import { Header } from 'ui';
+import { CartItemType, ProductsGrid, Wrapper, useHandleCart } from 'modules';
 import data from '../data.json';
 
 const products = data as unknown as Array<CartItemType>;

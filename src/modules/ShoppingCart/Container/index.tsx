@@ -1,5 +1,6 @@
 import React from 'react';
-import { Header, ProductsGrid, useHandleCart, Wrapper } from 'modules';
+import { Header } from 'ui';
+import { ProductsGrid, useHandleCart, Wrapper } from 'modules';
 
 export const ShoppingCart: React.FunctionComponent = () => {
   const { cartItems, handleRemoveFromCart, getTotalItems, addToCart } =

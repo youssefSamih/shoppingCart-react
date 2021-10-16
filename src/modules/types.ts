@@ -13,3 +13,5 @@ export interface CartItemType {
   title: string;
   amount: number;
 }
+
+export type Nullable<T> = T | null;

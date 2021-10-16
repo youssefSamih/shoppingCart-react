@@ -6,7 +6,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import AppBar from '@material-ui/core/AppBar';
 import Badge from '@material-ui/core/Badge';
 import Button from '@material-ui/core/Button';
-import { CartItemType } from 'modules';
+import type { CartItemType } from 'modules';
 
 interface HeaderProps {
   cartItems: Array<CartItemType>;
