@@ -22,12 +22,13 @@ export const ProductsGrid: React.FunctionComponent<ProductsGridProps> = ({
     handleChangeRowsPerPage,
     calculateTotal,
   } = useProductsGrid();
+  const listProducts = React.useMemo(() => products, [products]);
 
   return (
     <GridContainer>
       <Container>
         <Grid container spacing={3}>
-          {products
+          {listProducts
             ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((item) => (
               <Grid item key={item.id} xs={12} sm={4}>
@@ -39,7 +40,11 @@ export const ProductsGrid: React.FunctionComponent<ProductsGridProps> = ({
         </Grid>
         {products.length > 0 && (
           <TablePagination
-            rowsPerPageOptions={[5, 100, products.length]}
+            rowsPerPageOptions={[
+              Math.ceil(products.length / 3),
+              Math.ceil(products.length / 2),
+              products.length,
+            ]}
             component="div"
             count={products.length}
             rowsPerPage={rowsPerPage}
