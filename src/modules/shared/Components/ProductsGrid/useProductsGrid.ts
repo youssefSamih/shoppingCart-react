@@ -1,8 +1,14 @@
 import React from 'react';
 import type { Nullable, CartItemType } from 'modules';
 
-const useProductsGrid = () => {
-  const [rowsPerPage, setRowsPerPage] = React.useState(100);
+export type ProductsGridParams = {
+  products: Array<CartItemType>;
+};
+
+const useProductsGrid = ({ products }: ProductsGridParams) => {
+  const [rowsPerPage, setRowsPerPage] = React.useState(
+    products.length > 3 ? Math.ceil(products.length / 3) : products.length
+  );
   const [page, setPage] = React.useState(0);
 
   const handleChangePage = (

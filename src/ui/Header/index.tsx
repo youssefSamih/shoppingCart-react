@@ -23,11 +23,19 @@ export const Header: React.FunctionComponent<HeaderProps> = ({
     <AppBar position="fixed" color="inherit">
       <Toolbar>
         <IconButton onClick={() => history.push('/cart')}>
-          <Badge badgeContent={getTotalItems(cartItems)} color="error">
+          <Badge
+            badgeContent={getTotalItems(cartItems)}
+            data-testid="badge"
+            color="error"
+          >
             <AddShoppingCart />
           </Badge>
         </IconButton>
-        <Button onClick={() => history.push('/products')} color="inherit">
+        <Button
+          data-testid="product-link"
+          onClick={() => history.push('/products')}
+          color="inherit"
+        >
           Products
         </Button>
       </Toolbar>

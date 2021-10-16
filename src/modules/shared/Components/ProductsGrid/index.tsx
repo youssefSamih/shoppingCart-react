@@ -1,13 +1,11 @@
 import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import TablePagination from '@material-ui/core/TablePagination';
-import { Item, CartItemType, SharedProps } from 'modules';
+import { Item, SharedProps } from 'modules';
 import { GridContainer, Container } from './style';
-import useProductsGrid from './useProductsGrid';
+import useProductsGrid, { ProductsGridParams } from './useProductsGrid';
 
-type ProductsGridProps = SharedProps & {
-  products: Array<CartItemType>;
-};
+type ProductsGridProps = SharedProps & ProductsGridParams;
 
 export const ProductsGrid: React.FunctionComponent<ProductsGridProps> = ({
   products,
@@ -21,14 +19,15 @@ export const ProductsGrid: React.FunctionComponent<ProductsGridProps> = ({
     handleChangePage,
     handleChangeRowsPerPage,
     calculateTotal,
-  } = useProductsGrid();
-  const listProducts = React.useMemo(() => products, [products]);
+  } = useProductsGrid({
+    products,
+  });
 
   return (
     <GridContainer>
       <Container>
         <Grid container spacing={3}>
-          {listProducts
+          {products
             ?.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
             .map((item) => (
               <Grid item key={item.id} xs={12} sm={4}>

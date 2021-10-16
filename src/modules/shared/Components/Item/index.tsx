@@ -1,4 +1,4 @@
-import { CartItemType, SharedProps, useHandleCart } from 'modules';
+import { CartItemType, useHandleCart } from 'modules';
 import {
   Wrapper,
   Buttons,
@@ -7,8 +7,9 @@ import {
   InfoContainer,
 } from './style';
 
-type Props = SharedProps & {
+type Props = {
   item: CartItemType;
+  showAsCartItem?: boolean;
 };
 
 export const Item: React.FunctionComponent<Props> = ({
@@ -19,7 +20,7 @@ export const Item: React.FunctionComponent<Props> = ({
   const itemInThCart = Boolean(isItemInCart(item.id));
 
   return (
-    <Wrapper>
+    <Wrapper data-testid={`${item.id}`}>
       <StyledImage src={item.image} alt={item.title} />
       <InfoContainer>
         <h3>{item.title}</h3>
@@ -34,7 +35,7 @@ export const Item: React.FunctionComponent<Props> = ({
           {itemInThCart ? 'In cart' : 'Add to cart'}
         </StyledButton>
       ) : (
-        <Buttons>
+        <Buttons data-testid="increase-decrease-button">
           <StyledButton
             size="small"
             disableElevation

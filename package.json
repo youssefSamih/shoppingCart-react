@@ -46,6 +46,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:coverage": "npm test -- --env=jsdom --coverage",
     "eject": "react-scripts eject",
     "type-check": "tsc",
     "lint": "eslint -c ./.eslintrc.json ./src --ext .ts,.tsx",
